@@ -7,20 +7,22 @@ import main.ReceptorCreator;
 
 public class VisaComunicadorFactory implements ComunicadorFactory {
 
-	private Emissor emissor;
-	private Receptor receptor;
+
+	private EmissorCreator emissorCreator = new EmissorCreator();
+	private ReceptorCreator receptorCreator = new ReceptorCreator();
+	
 	@Override
 	public Emissor createEmissor() {
 		// TODO Aut\o-generated method stub
-		emissor = new EmissorCreator().create(0);
-		return emissor;
+		
+		return emissorCreator.create(EmissorCreator.VISA);
 	}
 
 	@Override
 	public Receptor createReceptor() {
 		// TODO Auto-generated method stub
-		receptor = new ReceptorCreator().create(0);
-		return receptor ;
+		
+		return receptorCreator.create(EmissorCreator.VISA) ;
 	}
 
 	@Override
